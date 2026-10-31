@@ -33,7 +33,7 @@ libraries:
     catalog: catalog.yaml
     layout: skills/<skill>/SKILL.md
     authority: domain
-    note: 29 技能 / 2 组。OPC 经营层 9 阶段 + idea-to-cash 16 关 + 通用增长分析。
+    note: 30 技能 / 2 组。OPC 经营层 9 阶段 + idea-to-cash 16 关 + 通用增长分析 + 共享业务 ID 注册表。
 
   - id: engineering-standard
     type: spec

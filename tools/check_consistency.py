@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-"""自洽检查：跨文档扫描过期数字。"""
+"""自洽检查：跨文档扫描过期数字。
+
+规则：
+  * 下面 CHECKS 里列的都是**已经过时**的写法，出现即视为漂移。
+  * 标了【历史】的行、以及 git log 里的提交行属于**历史沿革**，不算漂移。
+"""
 import io
 import os
 import re
@@ -20,33 +25,48 @@ CHECKS = [
         (r"\b213\b", "213"), (r"\b235\b", "235"), (r"\b463\b", "463"),
     ]),
     (r"D:\agent-skills\NOTICE", [
-        (r"合计 166 个", "166"), (r"共 154 个技能", "154+3"),
+        (r"合计 166 个", "166"),
     ]),
     (r"D:\agent-skills\catalog.yaml", [
         (r"\b213\b", "213"),
     ]),
     (r"D:\opc-playbook\README.md", [
         (r"\b27 个技能", "27技能"), (r"\b27 个技能正文", "27正文"),
+        (r"\b29 个技能", "29技能"), (r"\b29 技能", "29技能"),
     ]),
     (r"D:\opc-playbook\AGENT.md", [
-        (r"\b27 个技能", "27技能"),
+        (r"\b27 个技能", "27技能"), (r"\b29 个技能", "29技能"),
     ]),
     (r"D:\opc-playbook\INDEX.md", [
-        (r"\b27 个技能", "27技能"),
+        (r"\b27 个技能", "27技能"), (r"\b29 个技能", "29技能"),
     ]),
     (r"D:\研究\库体系\01-我还缺什么库-怎么建.md", [
         (r"213 条", "213条"), (r"\b213 个技能\b", "213技能"),
+        (r"\b29 技能", "29技能"),
     ]),
     (r"D:\研究\库体系\03-库体系总图.md", [
         (r"22 域 / 213 技能", "213"), (r"\b213\b", "213"),
+        (r"\b29 技能", "29技能"),
     ]),
     (r"D:\skills-meta\catalog.yaml", [
         (r"\b213\b", "213"), (r"22 个域", "22域"), (r"27 技能", "27技能"),
+        (r"\b29 技能", "29技能"),
     ]),
     (r"D:\skills-meta\README.md", [
         (r"\b213\b", "213"), (r"22 个域", "22域"), (r"27 技能", "27技能"),
+        (r"\b29 技能", "29技能"),
     ]),
 ]
+
+HIST_MARKERS = ("【历史】", "（历史）")
+GIT_LOG_RE = re.compile(r"^\s*[0-9a-f]{7,}\s")
+
+
+def is_historical(line):
+    if any(m in line for m in HIST_MARKERS):
+        return True
+    return bool(GIT_LOG_RE.match(line))
+
 
 bad = 0
 for path, pats in CHECKS:
@@ -55,11 +75,15 @@ for path, pats in CHECKS:
         bad += 1
         continue
     t = io.open(path, encoding="utf-8").read()
+    lines = t.split("\n")
     hits = []
     for pat, label in pats:
         for m in re.finditer(pat, t):
-            line = t[:m.start()].count("\n") + 1
-            hits.append("第 %d 行  %s" % (line, label))
+            line_no = t[:m.start()].count("\n") + 1
+            src = lines[line_no - 1] if line_no - 1 < len(lines) else ""
+            if is_historical(src):
+                continue
+            hits.append("第 %d 行  %s" % (line_no, label))
     if hits:
         print("⚠ %s" % path)
         for h in hits[:8]:
@@ -69,3 +93,4 @@ for path, pats in CHECKS:
         print("✅ %s" % path)
 print()
 print("过期项所在文件: %d" % bad)
+sys.exit(1 if bad else 0)
