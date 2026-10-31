@@ -136,7 +136,7 @@ conflict_resolution:
 | `superpowers` | 15 | 通用工艺，**插件主导**；我们的 `engineering/debug` 降为 fallback |
 | `Product-Manager-Skills` | 46 | 通用 PM 工艺 + SaaS 指标，**插件主导**；不替代 OPC 经营层 |
 | `plugin-dev` | 7 | Claude Code 侧插件/命令/Agent 开发，**插件主导**；与我们的 cowork 侧不冲突 |
-| `skill-creator` | 1 | 写技能，**插件主导**；我们的 `agent-toolkit/skill-tuner` 降为 fallback |
+| `skill-creator` | 1 | 写技能，**插件主导**；我们的 `agent-toolkit/optimize-skill-md` 降为 fallback |
 
 ---
 
