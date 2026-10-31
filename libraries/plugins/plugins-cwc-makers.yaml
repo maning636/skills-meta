@@ -1,0 +1,12 @@
+name: plugins/cwc-makers
+namespace: plugin:plugins/cwc-makers
+type: plugin
+version: 1.0.0
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.claude\plugins\marketplaces\claude-plugins-official\plugins
+priority: first
+authority: process
+skills:
+- cardputer-buddy
+- m5-onboard

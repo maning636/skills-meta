@@ -1,0 +1,45 @@
+name: daily-coding
+description: 日常写码 —— 调试、代码理解、本机工具（轻量，不带设计与经营）
+include:
+  - library: engineering-standard@main
+    paths:
+      - PROJECT-RUN/AGENT-PROTOCOL.md
+      - PROJECT-RUN/CRAFTS/TDD.md
+      - PROJECT-RUN/CRAFTS/VERIFY.md
+      - PROJECT-RUN/CRAFTS/REVIEW.md
+
+  - library: agent-skills@chore/prune-20261031
+    skills:
+      - engineering/debug
+      - engineering/standup
+      - understand/understand
+      - understand/understand-chat
+      - understand/understand-dashboard
+      - understand/understand-diff
+      - understand/understand-domain
+      - understand/understand-explain
+      - understand/understand-knowledge
+      - local-tooling/local-ocr
+      - local-tooling/skill-tuner
+
+  - library: plugin:superpowers
+    skills:
+      - brainstorming
+      - writing-plans
+      - executing-plans
+      - systematic-debugging
+      - test-driven-development
+      - requesting-code-review
+      - receiving-code-review
+      - using-git-worktrees
+      - dispatching-parallel-agents
+      - verification-before-completion
+      - writing-skills
+      - finishing-a-development-branch
+
+resolve:
+  conflict: catalog.superseded_by
+  on_missing_plugin: fallback
+  note: |
+    这个 composition 里插件是主力（工艺），我们的技能是补充。
+    engineering/debug 的 authority=fallback —— 插件的 systematic-debugging 在场时用插件的。

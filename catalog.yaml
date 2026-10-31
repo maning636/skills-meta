@@ -1,0 +1,90 @@
+version: 1
+kind: meta
+name: skills-meta
+label: 多库元库（组合总线）
+updated: 2026-10-31
+
+# 权威规则（Loader 必须遵守）：
+#   1. 先读本文件 -> 按 pin 拉取各库 -> 只把 name/description 注入上下文
+#   2. 缓存放在 ~/.agent-skills-cache/<库名>@<tag>/，一键可清
+#   3. 执行时打印本次使用的 composition / 库@tag / 技能 id 列表
+#   4. 生产用的 composition 固定 tag，不固定 main
+
+libraries:
+  - id: agent-skills
+    type: skills
+    label: 企业职能技能库
+    url: https://github.com/maning636/agent-skills.git
+    raw_base: https://raw.githubusercontent.com/maning636/agent-skills/main/
+    local_path: D:\agent-skills
+    l0: INDEX.md
+    catalog: catalog.yaml
+    layout: domains/<domain>/<skill>/SKILL.md
+    authority: domain
+    note: 20 域 / 186 技能。CRM、现金流、竞品、合同、招聘、财务、客服、数据、企业搜索等企业职能。
+
+  - id: opc-playbook
+    type: skills
+    label: OPC 经营与商业判断
+    url: https://github.com/maning636/opc-playbook.git
+    raw_base: https://raw.githubusercontent.com/maning636/opc-playbook/main/
+    local_path: D:\opc-playbook
+    l0: INDEX.md
+    catalog: catalog.yaml
+    layout: skills/<skill>/SKILL.md
+    authority: domain
+    note: 27 技能 / 2 组。OPC 经营层 9 阶段 + idea-to-cash 16 关 + 通用增长分析。
+
+  - id: engineering-standard
+    type: spec
+    label: 研发与交付规范
+    url: https://github.com/maning636/engineering-standard.git
+    raw_base: https://raw.githubusercontent.com/maning636/engineering-standard/main/
+    authority: domain
+    license: CC-BY-NC-SA-4.0
+    note: ENGINEERING-KIT + PROJECT-RUN（AGENT-PROTOCOL P0-P6、CRAFTS、RELEASE、软著 SOP）。
+          协议非商用，但对外可读 —— 目的是让外部专家能读并给意见。
+
+  - id: design-skills-playbook
+    type: spec
+    label: 设计规范与场景路由
+    url: https://github.com/maning636/design-skills-playbook.git
+    raw_base: https://raw.githubusercontent.com/maning636/design-skills-playbook/main/
+    authority: domain
+    note: 7 场景 ROUTING.md + UI 级需求分析（show-me → 信息架构/页面清单）。
+
+  - id: agent-workspace-spec
+    type: spec
+    label: 工作区与分发规范
+    url: https://github.com/maning636/agent-workspace-spec.git
+    raw_base: https://raw.githubusercontent.com/maning636/agent-workspace-spec/main/
+    authority: domain
+    note: 01 篇工作区五层模型 + 08 篇远程技能库与 Loader 规范。本元库本身依据它建设。
+
+  - id: plugin:superpowers
+    type: plugin
+    label: superpowers 插件
+    source: local
+    authority: process
+    priority: first
+    note: |
+      已安装插件。**插件优先于我们的技能** —— 通用工艺（脑暴、写计划、执行计划、调试、
+      TDD、代码评审双向、git worktree、并行子代理、完成前验证、写技能）一律先查插件。
+      商业判断 / OPC 经营层 / idea-to-cash / 设计令牌与评审 / 企业运营与指标口径
+      **只从我们的库取，插件不得接管**。
+      清单由 tools/scan_plugins.py 按本机实际安装版本刷新。
+
+# 冲突消解：同一个能力同时在插件和我们的库里存在时，谁说了算
+conflict_resolution:
+  order: [plugin, skills, spec]
+  key_field: superseded_by
+  fallback_field: fallback
+  never_delegate:
+    - 商业判断 / 经营层
+    - OPC 经营层阶段机
+    - idea-to-cash 产品层阶段机
+    - 价值主张与商业模式
+    - 设计令牌与设计评审
+    - 企业运营（CRM / 现金流 / 竞品 / 销售漏斗）
+    - 指标口径与实验设计
+    - 交付发布与合规

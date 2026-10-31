@@ -1,0 +1,63 @@
+name: product-delivery
+description: 产品到交付 —— 需求澄清 → 设计 → 开发 → 复核 → 发布（工程规范 + 设计规范 + 代码理解）
+include:
+  - library: agent-workspace-spec@main
+    paths:
+      - 01-工作区与加载协议.md
+      - 08-远程技能库与本地Loader.md
+
+  - library: engineering-standard@main
+    paths:
+      - ENGINEERING-KIT.md
+      - PROJECT-RUN/AGENT-PROTOCOL.md
+      - PROJECT-RUN/CRAFTS/DESIGN.md
+      - PROJECT-RUN/CRAFTS/REVIEW.md
+      - PROJECT-RUN/CRAFTS/TDD.md
+      - PROJECT-RUN/CRAFTS/VERIFY.md
+      - PROJECT-RUN/RELEASE.md
+      - PROJECT-RUN/checklist.md
+
+  - library: design-skills-playbook@main
+    paths:
+      - ROUTING.md
+      - prompts/01-requirements-analysis.md
+
+  - library: agent-skills@chore/prune-20261031
+    skills:
+      - design/user-research
+      - design/research-synthesis
+      - design/design-critique
+      - design/accessibility-review
+      - design/design-handoff
+      - design/design-system
+      - design/ux-copy
+      - product-management/roadmap-update
+      - product-management/metrics-review
+      - product-management/stakeholder-update
+      - engineering/debug
+      - engineering/standup
+      - understand/understand
+      - understand/understand-chat
+      - understand/understand-dashboard
+      - understand/understand-diff
+      - understand/understand-domain
+      - understand/understand-explain
+      - understand/understand-knowledge
+
+  - library: plugin:superpowers
+    skills:
+      - brainstorming
+      - writing-plans
+      - executing-plans
+      - systematic-debugging
+      - test-driven-development
+      - requesting-code-review
+      - receiving-code-review
+      - verification-before-completion
+
+resolve:
+  conflict: catalog.superseded_by
+  on_missing_plugin: fallback
+  note: |
+    插件负责「怎么做」的工艺（脑暴/计划/TDD/评审/验证）；
+    我们负责「做什么才对」——设计令牌与评审、商业约束、指标口径。

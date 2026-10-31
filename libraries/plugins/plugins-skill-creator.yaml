@@ -1,0 +1,11 @@
+name: plugins/skill-creator
+namespace: plugin:plugins/skill-creator
+type: plugin
+version: unknown
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.claude\plugins\marketplaces\claude-plugins-official\plugins
+priority: first
+authority: process
+skills:
+- skill-creator

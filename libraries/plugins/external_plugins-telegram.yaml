@@ -1,0 +1,12 @@
+name: external_plugins/telegram
+namespace: plugin:external_plugins/telegram
+type: plugin
+version: 0.0.6
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.claude\plugins\marketplaces\claude-plugins-official\external_plugins
+priority: first
+authority: process
+skills:
+- access
+- configure

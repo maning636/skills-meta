@@ -1,0 +1,11 @@
+name: kimi-cu-win
+namespace: plugin:kimi-cu-win
+type: plugin
+version: unknown
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.kimi-code\plugins\managed
+priority: first
+authority: process
+skills:
+- kimi-cu

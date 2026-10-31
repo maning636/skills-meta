@@ -1,0 +1,17 @@
+name: plugins/plugin-dev
+namespace: plugin:plugins/plugin-dev
+type: plugin
+version: unknown
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.claude\plugins\marketplaces\claude-plugins-official\plugins
+priority: first
+authority: process
+skills:
+- agent-development
+- command-development
+- hook-development
+- mcp-integration
+- plugin-settings
+- plugin-structure
+- skill-development

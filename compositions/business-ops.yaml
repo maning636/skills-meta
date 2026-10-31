@@ -1,0 +1,45 @@
+name: business-ops
+description: 企业职能事务 —— CRM、现金流、合同、招聘、运营、客服、财务、数据、企业搜索（不含经营判断）
+include:
+  - library: agent-skills@chore/prune-20261031
+    domains:
+      - finance
+      - legal
+      - human-resources
+      - operations
+      - customer-support
+      - marketing
+      - data
+      - enterprise-search
+
+  - library: agent-skills@chore/prune-20261031
+    skills:
+      # 小企业中真正被日常用到的运营件
+      - small-business/business-pulse
+      - small-business/cash-flow-snapshot
+      - small-business/close-month
+      - small-business/month-end-prep
+      - small-business/report-pack
+      - small-business/contract-review
+      - small-business/crm-autopilot
+      - small-business/pay-the-bills
+      - small-business/invoice-chase
+      - small-business/plan-payroll
+      - small-business/payroll-prep
+      - small-business/tax-prep
+      - small-business/inventory-planner
+      - small-business/hiring-screener
+      - small-business/proposal-builder
+      - small-business/report-builder
+      # 办公与个人效率
+      - productivity/start
+      - productivity/task-management
+      - productivity/memory-management
+      - agent-toolkit/officecli
+      - agent-toolkit/slidecraft
+      - pdf-viewer/view-pdf
+
+resolve:
+  conflict: catalog.superseded_by
+  on_missing_plugin: fallback
+  note: 这个 composition 是「事务型」的 —— 不做方向性判断，只做把事情办完。

@@ -1,0 +1,12 @@
+name: external_plugins/imessage
+namespace: plugin:external_plugins/imessage
+type: plugin
+version: 0.1.0
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.claude\plugins\marketplaces\claude-plugins-official\external_plugins
+priority: first
+authority: process
+skills:
+- access
+- configure

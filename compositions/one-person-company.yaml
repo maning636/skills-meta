@@ -1,0 +1,63 @@
+name: one-person-company
+description: 一人公司经营主线 —— 经营判断 + 增长 + 最小企业职能（财务/销售/法务/HR）
+include:
+  - library: opc-playbook@main
+    domains: [opc, growth-ops]
+
+  - library: agent-skills@chore/prune-20261031
+    skills:
+      # —— 财务 ——
+      - finance/financial-statements
+      - finance/journal-entry-prep
+      - finance/reconciliation
+      - finance/variance-analysis
+      # —— 经营快照与月结 ——
+      - small-business/business-pulse
+      - small-business/cash-flow-snapshot
+      - small-business/close-month
+      - small-business/month-end-prep
+      - small-business/tax-prep
+      - small-business/report-pack
+      - small-business/growth-pulse
+      - small-business/contract-review
+      - small-business/crm-autopilot
+      - small-business/content-strategy
+      - small-business/brand-style
+      # —— 销售与获客 ——
+      - sales/sales-lead-triage
+      - sales/route-lead
+      - sales/draft-outreach
+      - sales/deal-review
+      - sales/pipeline-review
+      - sales/forecast
+      - sales/win-loss-review
+      - sales/competitive-intelligence
+      - sales/customer-voice
+      # —— 产品 ——
+      - product-management/roadmap-update
+      - product-management/metrics-review
+      - product-management/stakeholder-update
+      # —— 市场 ——
+      - marketing/brand-review
+      - marketing/campaign-plan
+      - marketing/email-sequence
+      # —— 数据 ——
+      - data/build-dashboard
+      - data/explore-data
+      - data/analyze
+      - data/create-viz
+      # —— 法务与合规 ——
+      - legal/review-contract
+      - legal/triage-nda
+      - legal/legal-risk-assessment
+      - legal/compliance-check
+      # —— 人 ——
+      - human-resources/recruiting-pipeline
+      - human-resources/interview-prep
+      - human-resources/draft-offer
+      - human-resources/onboarding
+
+resolve:
+  conflict: catalog.superseded_by
+  on_missing_plugin: fallback
+  note: OPC 经营层的判断结论必须落到可验证动作上（付费测试/访谈/最小交付）。

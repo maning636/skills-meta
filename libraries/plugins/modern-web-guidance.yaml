@@ -1,0 +1,12 @@
+name: modern-web-guidance
+namespace: plugin:modern-web-guidance
+type: plugin
+version: 0.0.196
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.kimi-code\plugins\managed
+priority: first
+authority: process
+skills:
+- chrome-extensions
+- modern-web-guidance

@@ -1,0 +1,11 @@
+name: kimi-webbridge
+namespace: plugin:kimi-webbridge
+type: plugin
+version: unknown
+updated: '2026-10-31'
+source: local
+root: C:\Users\maning\.kimi-code\plugins\managed
+priority: first
+authority: process
+skills:
+- kimi-webbridge
