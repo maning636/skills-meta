@@ -21,7 +21,7 @@ libraries:
     catalog: catalog.yaml
     layout: domains/<domain>/<skill>/SKILL.md
     authority: domain
-    note: 20 域 / 186 技能。CRM、现金流、竞品、合同、招聘、财务、客服、数据、企业搜索等企业职能。
+    note: 19 域 / 176 技能。CRM、现金流、竞品、合同、招聘、财务、客服、数据、企业搜索等企业职能。
 
   - id: opc-playbook
     type: skills

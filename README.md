@@ -9,7 +9,7 @@
 
 ## 它解决什么
 
-我们有 5 个库、20+ 个插件、186 + 27 个技能。如果没有统一索引：
+我们有 5 个库、20+ 个插件、176 + 30 个技能。如果没有统一索引：
 
 - Agent 不知道该去哪个库找，会在一个库里硬找
 - 同一个能力在插件和我们的库里各有一份，不知道**谁权威**
@@ -39,7 +39,6 @@ skills-meta/
 │  ├─ business-ops.yaml
 │  ├─ product-delivery.yaml
 │  ├─ daily-coding.yaml
-│  └─ hyperframes-video.yaml
 ├─ libraries/
 │  └─ plugins/             插件清单（scan_plugins.py 生成）
 └─ tools/
@@ -101,7 +100,6 @@ python D:\agent-skills\tools\fetch.py --cache-clear
 | `business-ops` | 企业职能事务：CRM、现金流、合同、招聘、运营、客服、财务、数据 | agent-skills |
 | `product-delivery` | 需求澄清 → 设计 → 开发 → 复核 → 发布 | 三本规范库 + agent-skills |
 | `daily-coding` | 日常写码：调试、代码理解、本机工具 | engineering-standard + superpowers |
-| `hyperframes-video` | 视频管线：动效、网页转视频、素材与发布 | agent-skills(hyperframes) |
 
 ---
 

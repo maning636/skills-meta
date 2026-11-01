@@ -36,7 +36,6 @@ include:
       - productivity/task-management
       - productivity/memory-management
       - agent-toolkit/officecli
-      - agent-toolkit/slidecraft
       - pdf-viewer/view-pdf
 
 resolve:

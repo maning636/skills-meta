@@ -7,7 +7,7 @@
 # 固定的是「库的版本」，不是「技能列表」——
 # 技能列表在 composition 里写死，库的 tag 一变，lock.jsonl 会留下差异记录。
 
-agent-skills@chore/prune-20261031
+agent-skills@main
 opc-playbook@main
 engineering-standard@main
 design-skills-playbook@main

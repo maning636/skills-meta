@@ -43,7 +43,6 @@ python D:\agent-skills\tools\fetch.py --raw <path>     # 取技能正文
 | 办企业事务：CRM、现金流、合同、招聘、财报 | `business-ops` |
 | 做产品到交付：需求 → 设计 → 开发 → 发布 | `product-delivery` |
 | 写代码、调试、看懂某个仓库 | `daily-coding` |
-| 做视频：动效、网页转视频、素材、发布 | `hyperframes-video` |
 
 **不匹配任何组合 → 明确说「本库无对应组合」，不要硬套。**
 

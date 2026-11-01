@@ -42,10 +42,8 @@ include:
       - marketing/campaign-plan
       - marketing/email-sequence
       # —— 数据 ——
-      - data/build-dashboard
       - data/explore-data
       - data/analyze
-      - data/create-viz
       # —— 法务与合规 ——
       - legal/review-contract
       - legal/triage-nda
